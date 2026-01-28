@@ -26,9 +26,9 @@ const Home = () => {
 
       {/* FIRST GRID SECTION */}
       <section className="lg:px-32 px-4 sm:pt-20 pt-5 pb-10">
-        <div className="grid grid-cols-2 sm:gap-10 gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
-          <div className="border rounded-lg overflow-hidden">
+          <div className="border rounded-xl overflow-hidden">
             <Link href="">
               <Image
                 src={banner1.src}
@@ -41,7 +41,7 @@ const Home = () => {
           </div>
 
           {/* TEXT FIRST (LEFT) */}
-<div className="bg-[#faf8f5] rounded-2xl p-8 lg:p-10">
+<div className="bg-[#faf8f5] rounded-2xl p-5 sm:p-6 lg:p-10">
 
   <h3
     className="
@@ -130,11 +130,10 @@ const Home = () => {
 
       {/* FIRST GRID SECTION */}
 <section className="lg:px-32 px-4 sm:pt-20 pt-5 pb-10">
-  <div className="grid grid-cols-2 sm:gap-10 gap-2">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
     {/* TEXT FIRST (LEFT) */}
-    <div className="bg-[#faf8f5] rounded-2xl p-8 lg:p-10">
-
+    <div className="bg-[#faf8f5] rounded-2xl p-5 sm:p-6 lg:p-10">
       <h3
         className="
           text-[20px] lg:text-[24px]
@@ -207,7 +206,7 @@ const Home = () => {
     </div>
 
     {/* IMAGE SECOND (RIGHT) */}
-    <div className="border rounded-lg overflow-hidden">
+    <div className="border rounded-xl overflow-hidden">
       <Link href="">
         <Image
           src={banner2.src}
@@ -223,9 +222,9 @@ const Home = () => {
 </section>
 
 <section className="lg:px-32 px-4 sm:pt-20 pt-5 pb-10">
-        <div className="grid grid-cols-2 sm:gap-10 gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
-          <div className="border rounded-lg overflow-hidden">
+          <div className="border rounded-xl overflow-hidden">
             <Link href="">
               <Image
                 src={banner3.src}
@@ -237,7 +236,7 @@ const Home = () => {
             </Link>
           </div>
 
-         <div className="bg-[#faf8f5] rounded-2xl p-8 lg:p-10">
+         <div className="bg-[#faf8f5] rounded-2xl p-5 sm:p-6 lg:p-10">
 
   <span className="block text-[10px] tracking-[0.35em] uppercase text-[#9c8b73] mb-3">
     Signature Collection
@@ -321,10 +320,10 @@ const Home = () => {
 
       {/* FIRST GRID SECTION */}
 <section className="lg:px-32 px-4 sm:pt-20 pt-5 pb-10">
-  <div className="grid grid-cols-2 sm:gap-10 gap-2">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
 {/* TEXT FIRST (LEFT) */}
-<div className="bg-[#faf8f5] rounded-2xl p-8 lg:p-10">
+<div className="bg-[#faf8f5] rounded-2xl p-5 sm:p-6 lg:p-10">
 
   <h3
     className="
@@ -403,7 +402,7 @@ const Home = () => {
 
 
     {/* IMAGE SECOND (RIGHT) */}
-    <div className="border rounded-lg overflow-hidden">
+    <div className="border rounded-xl overflow-hidden">
       <Link href="">
         <Image
           src={banner4.src}
@@ -423,7 +422,7 @@ const Home = () => {
   <FeaturedProduct />
 </Suspense>
 
-<section className="sm:pt-16 pt-6 pb-10 flex justify-center">
+<section className="py-10 sm:py-16 flex justify-center">
   <div className="max-w-[1100px] w-full px-4">
 
     <div className="
@@ -450,8 +449,7 @@ const Home = () => {
       <Testimonial />
 
       <section className="lg:px-32 px-4 border-t py-10">
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10">
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-center">
             <p className="flex justify-center items-center mb-3">
               <GiReturnArrow size={30} />

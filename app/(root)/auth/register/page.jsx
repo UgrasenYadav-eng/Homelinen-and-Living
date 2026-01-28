@@ -65,133 +65,169 @@ const RegisterPage = () => {
         }
     }
 return (
-  <div className="min-h-screen flex justify-center pt-[180px] px-4">
-    <Card className="w-[700px]">
-      <CardContent>
-        <div className='flex justify-center'>
+  <div className="min-h-screen flex items-center justify-center px-4 py-16 bg-[#faf8f5]">
+
+    <Card className="w-full max-w-[420px] sm:max-w-[520px] shadow-xl">
+      <CardContent className="p-6 sm:p-10">
+
+        {/* LOGO */}
+        <div className="flex justify-center mb-6">
           <Image
             src={Logo.src}
             width={Logo.width}
             height={Logo.height}
-            alt='logo'
-            className='max-w-[150px]'
+            alt="logo"
+            className="max-w-[120px] sm:max-w-[150px]"
+            priority
           />
         </div>
 
-        <div className='text-center'>
-          <h1 className='text-3xl font-bold'>Create Account!</h1>
-          <p>Create new account by filling out the form below.</p>
+        {/* TITLE */}
+        <div className="text-center mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold">
+            Create Account
+          </h1>
+          <p className="text-sm sm:text-base text-muted-foreground">
+            Create a new account by filling out the form below.
+          </p>
         </div>
 
-        <div className='mt-5'>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(handleRegisterSubmit)} >
+        {/* FORM */}
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(handleRegisterSubmit)}
+            className="space-y-4"
+          >
 
-                            <div className='mb-5'>
-                                <FormField
-                                    control={form.control}
-                                    name="name"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Full Name</FormLabel>
-                                            <FormControl>
-                                                <Input type="text" placeholder="Your Name" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-                            <div className='mb-5'>
-                                <FormField
-                                    control={form.control}
-                                    name="mobile"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Mobile Number</FormLabel>
-                                            <FormControl>
-                                                <Input type="tel" placeholder="9912345678" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-                            <div className='mb-5'>
-                                <FormField
-                                    control={form.control}
-                                    name="email"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Email</FormLabel>
-                                            <FormControl>
-                                                <Input type="email" placeholder="example@gmail.com" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-                            <div className='mb-5'>
-                                <FormField
-                                    control={form.control}
-                                    name="password"
-                                    render={({ field }) => (
-                                        <FormItem className="relative">
-                                            <FormLabel>Password</FormLabel>
-                                            <FormControl>
-                                                <Input type="password" placeholder="***********" {...field} />
-                                            </FormControl>
-                                             <button className='absolute top-1/2 right-2 cursor-pointer' type='button' onClick={() => setIsTypePassword(!isTypePassword)}>
-                                                {isTypePassword ?
-                                                    <FaRegEyeSlash />
-                                                    :
-                                                    <FaRegEye />
-                                                }
-                                            </button>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-                            <div className='mb-5'>
-                                <FormField
-                                    control={form.control}
-                                    name="confirmPassword"
-                                    render={({ field }) => (
-                                        <FormItem className="relative">
-                                            <FormLabel>Confirm Password</FormLabel>
-                                            <FormControl>
-                                                <Input type={isTypePassword ? 'password' : 'text'} placeholder="***********" {...field} />
-                                            </FormControl>
-                                            <button className='absolute top-1/2 right-2 cursor-pointer' type='button' onClick={() => setIsTypePassword(!isTypePassword)}>
-                                                {isTypePassword ?
-                                                    <FaRegEyeSlash />
-                                                    :
-                                                    <FaRegEye />
-                                                }
-                                            </button>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-                            <div className='mb-3'>
-                                <ButtonLoading loading={loading} type="submit" text="Create Account" className="w-full cursor-pointer" />
-                            </div>
-                            <div className='text-center'>
-                                <div className='flex justify-center items-center gap-1'>
-                                    <p>Already have account?</p>
-                                    <Link href={WEBSITE_LOGIN} className='text-primary underline'>Login!</Link>
-                                </div>
-                            </div>
-                        </form>
-                    </Form>
-                </div>
-            </CardContent>
-            </Card>
+            {/* NAME */}
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Full Name</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Your Name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* MOBILE */}
+            <FormField
+              control={form.control}
+              name="mobile"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Mobile Number</FormLabel>
+                  <FormControl>
+                    <Input type="tel" placeholder="9912345678" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* EMAIL */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input type="email" placeholder="example@gmail.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* PASSWORD */}
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem className="relative">
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      type={isTypePassword ? "password" : "text"}
+                      placeholder="***********"
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsTypePassword(!isTypePassword)}
+                    className="absolute right-3 top-[38px] text-muted-foreground"
+                  >
+                    {isTypePassword ? <FaRegEyeSlash /> : <FaRegEye />}
+                  </button>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* CONFIRM */}
+            <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem className="relative">
+                  <FormLabel>Confirm Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      type={isTypePassword ? "password" : "text"}
+                      placeholder="***********"
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsTypePassword(!isTypePassword)}
+                    className="absolute right-3 top-[38px] text-muted-foreground"
+                  >
+                    {isTypePassword ? <FaRegEyeSlash /> : <FaRegEye />}
+                  </button>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* SUBMIT */}
+            <ButtonLoading
+              loading={loading}
+              type="submit"
+              text="Create Account"
+              className="w-full"
+            />
+
+            {/* LOGIN */}
+            <div className="text-center pt-3 text-sm">
+              <span>Already have account? </span>
+              <Link
+                href={WEBSITE_LOGIN}
+                className="text-primary underline font-medium"
+              >
+                Login
+              </Link>
+            </div>
+
+          </form>
+        </Form>
+
+      </CardContent>
+    </Card>
+
   </div>
 )
+
 
 }
 
