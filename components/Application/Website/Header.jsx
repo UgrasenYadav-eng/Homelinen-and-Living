@@ -83,7 +83,7 @@ export default function Header() {
             href={WEBSITE_HOME}
             className="
               absolute left-1/2 -translate-x-1/2
-              text-[84px] font-medium
+              text-[42px] lg:text-[64px] font-medium
               tracking-[0.22em]
               text-[#630e19]
               whitespace-nowrap
