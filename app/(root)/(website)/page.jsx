@@ -14,6 +14,8 @@ import { GiReturnArrow } from "react-icons/gi";
 import { FaShippingFast } from "react-icons/fa";
 import { BiSupport } from "react-icons/bi";
 import { TbRosetteDiscountFilled } from "react-icons/tb";
+import { Suspense } from "react";
+import FeaturedSkeleton from "@/components/Application/Website/FeaturedSkeleton";
 
 const Home = () => {
   return (
@@ -43,7 +45,7 @@ const Home = () => {
 
   <h3
     className="
-      text-[22px] lg:text-[28px]
+      text-[20px] lg:text-[24px]
       font-light
       tracking-wide
       text-[#3a2e1f]
@@ -59,9 +61,10 @@ const Home = () => {
 
   <div className="h-[1px] w-12 bg-[#d8cfc2] mb-6" />
 
-  <div className="space-y-6">
+  <div className="space-y-5 max-h-[320px] overflow-hidden relative">
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Delicate, graceful, and quietly luxurious, the Butterfly Bloom table mat
       and coaster set is designed to transform everyday dining into an artful
       experience. Hand-embellished with shimmering sequins and intricate
@@ -69,7 +72,7 @@ const Home = () => {
       silhouette, creating a sense of movement and light on the table.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       The soft blush and ivory palette brings warmth and elegance, while the
       subtle sparkle adds a refined festive charm—perfect for intimate
       gatherings, celebratory tables, or elevated everyday settings.
@@ -78,7 +81,7 @@ const Home = () => {
       table styling.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Crafted with meticulous attention to detail, this set reflects timeless
       craftsmanship and modern luxury—where every meal feels thoughtfully
       curated.
@@ -96,6 +99,28 @@ const Home = () => {
       </ul>
 
     </div>
+        
+    {/* READ MORE LINK */}
+    <Link
+  href="/shop"
+  className="
+    inline-block mt-6 group
+    text-[11px] uppercase tracking-[0.25em]
+    text-[#630e19]
+    relative after:absolute after:left-0 after:-bottom-1
+    after:h-[1px] after:w-0 after:bg-[#630e19]
+    after:transition-all after:duration-300
+    hover:after:w-full
+  "
+>
+  Read More
+  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+    →
+  </span>
+</Link>
+
+
+    
 
   </div>
 </div>
@@ -114,7 +139,7 @@ const Home = () => {
 
       <h3
         className="
-          text-[22px] lg:text-[28px]
+          text-[20px] lg:text-[24px]
           font-light
           tracking-wide
           text-[#3a2e1f]
@@ -126,9 +151,10 @@ const Home = () => {
 
       <div className="h-[1px] w-12 bg-[#d8cfc2] mb-6" />
 
-      <div className="space-y-6">
+      <div className="space-y-5 max-h-[320px] overflow-hidden relative">
 
-        <p className="text-[14px] leading-[2] text-[#6b5c49]">
+
+        <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
           Pure, serene, and effortlessly elegant, Ivory Bloom is inspired by the
           quiet beauty of flowers in full bloom against a soft, neutral canvas.
           This collection celebrates refinement in its most timeless form—where
@@ -136,7 +162,7 @@ const Home = () => {
           graceful, balanced, and enduring.
         </p>
 
-        <p className="text-[14px] leading-[2] text-[#6b5c49]">
+        <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
           Each piece in the Ivory Bloom collection—runners, placemats, and
           napkins—is adorned with finely embroidered floral motifs, thoughtfully
           placed to enhance the natural elegance of the fabric. The subtle play
@@ -144,7 +170,7 @@ const Home = () => {
           craftsmanship to speak softly yet confidently.
         </p>
 
-        <p className="text-[14px] leading-[2] text-[#6b5c49]">
+        <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
           Designed for those who appreciate understated luxury, Ivory Bloom
           brings harmony to the table. The versatile ivory palette pairs
           seamlessly with classic porcelain, warm metallic accents, and natural
@@ -152,7 +178,7 @@ const Home = () => {
           use.
         </p>
 
-        <p className="text-[14px] leading-[2] text-[#6b5c49]">
+        <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
           Whether styled for intimate dinners, refined hospitality settings, or
           thoughtfully curated homes, Ivory Bloom embodies calm sophistication
           and lasting beauty—crafted to transcend trends and remain eternally
@@ -160,6 +186,26 @@ const Home = () => {
         </p>
 
       </div>
+      {/* READ MORE LINK */}
+   <Link
+  href="/shop"
+  className="
+    inline-block mt-6 group
+    text-[11px] uppercase tracking-[0.25em]
+    text-[#630e19]
+    relative after:absolute after:left-0 after:-bottom-1
+    after:h-[1px] after:w-0 after:bg-[#630e19]
+    after:transition-all after:duration-300
+    hover:after:w-full
+  "
+>
+  Read More
+  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+    →
+  </span>
+</Link>
+
+
     </div>
 
     {/* IMAGE SECOND (RIGHT) */}
@@ -217,16 +263,17 @@ const Home = () => {
 
   <div className="h-[1px] w-12 bg-[#d8cfc2] mb-6" />
 
-  <div className="space-y-6">
+  <div className="space-y-5 max-h-[320px] overflow-hidden relative">
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Delicate, graceful, and quietly refined, Petite Fleur draws inspiration
       from small florals in gentle bloom. Set against a warm beige canvas, this
       collection brings a sense of natural elegance to the table—subtle enough
       for everyday beauty, yet special enough for meaningful occasions.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Each piece in the Petite Fleur collection—runners, placemats, and
       napkins—is adorned with fine embroidery that reflects the charm of tiny
       blossoms and handcrafted detail. The soft beige base enhances the
@@ -234,20 +281,40 @@ const Home = () => {
       light, inviting, and timeless.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Designed to complement both modern and classic interiors, Petite Fleur
       pairs effortlessly with neutral tableware, natural textures, and soft
       metallic accents. Its versatile palette makes it ideal for brunches,
       intimate dinners, boutique hospitality settings, and refined gifting.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Understated yet expressive, Petite Fleur celebrates the beauty of small
       details—where craftsmanship, comfort, and elegance come together to
       create a table setting that feels warm, graceful, and enduring.
     </p>
 
   </div>
+  {/* READ MORE LINK */}
+    <Link
+  href="/shop"
+  className="
+    inline-block mt-6 group
+    text-[11px] uppercase tracking-[0.25em]
+    text-[#630e19]
+    relative after:absolute after:left-0 after:-bottom-1
+    after:h-[1px] after:w-0 after:bg-[#630e19]
+    after:transition-all after:duration-300
+    hover:after:w-full
+  "
+>
+  Read More
+  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+    →
+  </span>
+</Link>
+
+
 </div>
 
 
@@ -263,7 +330,7 @@ const Home = () => {
 
   <h3
     className="
-      text-[22px] lg:text-[28px]
+      text-[20px] lg:text-[24px]
       font-light
       tracking-wide
       text-[#3a2e1f]
@@ -279,9 +346,10 @@ const Home = () => {
 
   <div className="h-[1px] w-12 bg-[#d8cfc2] mb-6" />
 
-  <div className="space-y-6">
+  <div className="space-y-5 max-h-[320px] overflow-hidden relative">
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Rooted in timeless elegance and thoughtful craftsmanship, Maison Van
       reflects the essence of refined living. Crafted in soft beige tones and
       elevated with delicate crème embroidery, this collection embodies
@@ -289,7 +357,7 @@ const Home = () => {
       beauty in every detail.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Each runner, placemat, and napkin in the Maison Van collection is adorned
       with graceful embroidery that blends seamlessly into the fabric,
       creating a tone-on-tone effect that feels subtle yet distinctive. The
@@ -297,7 +365,7 @@ const Home = () => {
       cohesive aesthetic that never overwhelms the table.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Designed to transition effortlessly from everyday dining to special
       occasions, Maison Van pairs beautifully with natural ceramics, muted
       metallics, and organic textures. Its neutral palette makes it a
@@ -305,7 +373,7 @@ const Home = () => {
       elegant entertaining.
     </p>
 
-    <p className="text-[14px] leading-[2] text-[#6b5c49]">
+    <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
       Timeless, refined, and deeply inviting, Maison Van is more than a table
       linen collection—it is a reflection of considered living, where
       craftsmanship, comfort, and enduring style come together to create
@@ -313,6 +381,26 @@ const Home = () => {
     </p>
 
   </div>
+  {/* READ MORE LINK */}
+    <Link
+  href="/shop"
+  className="
+    inline-block mt-6 group
+    text-[11px] uppercase tracking-[0.25em]
+    text-[#630e19]
+    relative after:absolute after:left-0 after:-bottom-1
+    after:h-[1px] after:w-0 after:bg-[#630e19]
+    after:transition-all after:duration-300
+    hover:after:w-full
+  "
+>
+  Read More
+  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+    →
+  </span>
+</Link>
+
+
 </div>
 
 
@@ -333,7 +421,9 @@ const Home = () => {
 </section>
 
 
-      <FeaturedProduct />
+      <Suspense fallback={<FeaturedSkeleton />}>
+  <FeaturedProduct />
+</Suspense>
 
 <section className="sm:pt-16 pt-6 pb-10 flex justify-center">
   <div className="max-w-[1100px] w-full px-4">

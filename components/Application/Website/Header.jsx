@@ -61,7 +61,7 @@ export default function Header() {
       <div className="max-w-[1320px] mx-auto px-5">
 
         {/* TOP ROW */}
-        <div className="relative flex items-center justify-between h-[90px]">
+        <div className="relative flex items-center justify-between h-[72px]">
 
           {/* LOGO */}
           <Link
@@ -69,28 +69,31 @@ export default function Header() {
             className="flex items-start pt-2 pl-2"
           >
             <Image
-              src={smallLogo}
-              alt="Homelinen and Living"
-              width={60}
-              height={60}
-              className="h-[20px] w-auto object-contain"
-              priority
-            />
+  src={smallLogo}
+  alt="Homelinen and Living"
+  width={160}
+  height={160}
+  className="h-[44px] w-auto object-contain"
+  priority
+/>
+
           </Link>
 
           {/* BRAND */}
           <Link
-            href={WEBSITE_HOME}
-            className="
-              absolute left-1/2 -translate-x-1/2
-              text-[42px] lg:text-[64px] font-medium
-              tracking-[0.22em]
-              text-[#630e19]
-              whitespace-nowrap
-            "
-          >
-            Homelinen and Living
-          </Link>
+  href={WEBSITE_HOME}
+  className="
+    absolute left-1/2 -translate-x-1/2
+    text-[18px] sm:text-[22px] lg:text-[28px]
+    font-light
+    tracking-[0.12em]
+    text-[#630e19]
+    whitespace-nowrap
+  "
+>
+  Homelinen and Living
+</Link>
+
 
           {/* ICONS */}
           <div className="flex items-center gap-5 text-neutral-700">
@@ -126,7 +129,7 @@ export default function Header() {
         <nav
           className="
             hidden lg:flex justify-center
-            gap-10 pb-2
+            gap-8 pb-1
             text-[14px]
             uppercase tracking-[0.26em]
             text-[#3a2e1f]
