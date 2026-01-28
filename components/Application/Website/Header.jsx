@@ -61,21 +61,27 @@ export default function Header() {
       <div className="max-w-[1320px] mx-auto px-5">
 
         {/* TOP ROW */}
-        <div className="relative flex items-center justify-between h-[140px]">
+        <div className="relative flex items-center justify-between h-[80px] lg:h-[140px]">
 
           {/* LOGO */}
           <Link
-            href={WEBSITE_HOME}
-            className="flex items-start pt-2 pl-2"
-          >
+  href={WEBSITE_HOME}
+  className="flex items-center pl-2"
+>
 <Image
   src={smallLogo}
   alt="Homelinen and Living"
   width={320}
   height={320}
-  className="h-[132px] w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
+  className="
+    h-[56px] sm:h-[70px] lg:h-[132px]
+    w-auto
+    object-contain
+    drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]
+  "
   priority
 />
+
 
           </Link>
 
@@ -83,13 +89,14 @@ export default function Header() {
           <Link
   href={WEBSITE_HOME}
   className="
-    absolute left-1/2 -translate-x-1/2
-    text-[18px] sm:text-[22px] lg:text-[28px]
-    font-light
-    tracking-[0.12em]
-    text-[#630e19]
-    whitespace-nowrap
-  "
+  hidden lg:block
+  absolute left-1/2 -translate-x-1/2
+  text-[28px]
+  font-light
+  tracking-[0.12em]
+  text-[#630e19]
+  whitespace-nowrap
+"
 >
   Homelinen and Living
 </Link>
