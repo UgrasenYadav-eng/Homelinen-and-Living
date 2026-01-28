@@ -64,20 +64,29 @@ const RegisterPage = () => {
             setLoading(false)
         }
     }
+return (
+  <div className="min-h-screen flex justify-center pt-[180px] px-4">
+    <Card className="w-[700px]">
+      <CardContent>
+        <div className='flex justify-center'>
+          <Image
+            src={Logo.src}
+            width={Logo.width}
+            height={Logo.height}
+            alt='logo'
+            className='max-w-[150px]'
+          />
+        </div>
 
-    return (
-        <Card className="w-[700px]">
-            <CardContent>
-                <div className='flex justify-center'>
-                    <Image src={Logo.src} width={Logo.width} height={Logo.height} alt='logo' className='max-w-[150px]' />
-                </div>
-                <div className='text-center'>
-                    <h1 className='text-3xl font-bold'>Create Account!</h1>
-                    <p>Create new account by filling out the form below.</p>
-                </div>
-                <div className='mt-5'>
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(handleRegisterSubmit)} >
+        <div className='text-center'>
+          <h1 className='text-3xl font-bold'>Create Account!</h1>
+          <p>Create new account by filling out the form below.</p>
+        </div>
+
+        <div className='mt-5'>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(handleRegisterSubmit)} >
+
                             <div className='mb-5'>
                                 <FormField
                                     control={form.control}
@@ -180,8 +189,10 @@ const RegisterPage = () => {
                     </Form>
                 </div>
             </CardContent>
-        </Card>
-    )
+            </Card>
+  </div>
+)
+
 }
 
 export default RegisterPage

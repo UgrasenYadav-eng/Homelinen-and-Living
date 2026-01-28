@@ -61,7 +61,7 @@ export default function Header() {
       <div className="max-w-[1320px] mx-auto px-5">
 
         {/* TOP ROW */}
-        <div className="relative flex items-center justify-between h-[72px]">
+        <div className="relative flex items-center justify-between h-[140px]">
 
           {/* LOGO */}
           <Link

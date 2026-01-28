@@ -13,7 +13,7 @@ export default function Layout({ children }) {
 
       <Header />
 
-      <main className="flex-1 pt-[59px]">
+      <main className="flex-1 pt-[50px]">
         {children}
       </main>
 
