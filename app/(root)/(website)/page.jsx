@@ -367,7 +367,7 @@ const Home = () => {
       occasions, Maison Van pairs beautifully with natural ceramics, muted
       metallics, and organic textures. Its neutral palette makes it a
       versatile choice for modern interiors, boutique hospitality, and
-      elegant entertaining.
+      elegant entertaining
     </p>
 
     <p className="text-[14px] leading-[1.8] text-[#6b5c49] line-clamp-3">
