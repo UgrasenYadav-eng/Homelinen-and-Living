@@ -101,7 +101,8 @@ const Home = () => {
     </div>
         
     {/* READ MORE LINK */}
-    <Link
+    {/* READ MORE LINK */}
+<Link
   href="/shop"
   className="
     inline-block mt-6 group
@@ -117,10 +118,7 @@ const Home = () => {
   <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
     →
   </span>
-</Link>
-
-
-    
+</Link>    
 
   </div>
 </div>

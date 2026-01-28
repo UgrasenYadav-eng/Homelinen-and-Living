@@ -68,12 +68,12 @@ export default function Header() {
             href={WEBSITE_HOME}
             className="flex items-start pt-2 pl-2"
           >
-            <Image
+<Image
   src={smallLogo}
   alt="Homelinen and Living"
-  width={160}
-  height={160}
-  className="h-[44px] w-auto object-contain"
+  width={320}
+  height={320}
+  className="h-[132px] w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
   priority
 />
 
