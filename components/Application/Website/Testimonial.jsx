@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import { IoStar } from "react-icons/io5";
 import { BsChatQuote } from "react-icons/bs";
 
-
 const testimonials = [
     {
         name: "Sophia Patel",
@@ -19,7 +18,7 @@ const testimonials = [
         rating: 4
     },
     {
-        name: "Emily Chen",
+        name: "Ravindra Singh",
         review: "I’ve been using this service for over a month now and it’s been amazing. The user interface is intuitive and everything runs smoothly. I haven’t faced any major issues so far.",
         rating: 5
     },
@@ -29,7 +28,7 @@ const testimonials = [
         rating: 4
     },
     {
-        name: "Ava Johnson",
+        name: "Aryan Pandey",
         review: "The attention to detail is impressive. From packaging to performance, everything was handled professionally. I feel like I got great value for my money.",
         rating: 5
     },
@@ -60,8 +59,6 @@ const testimonials = [
     }
 ];
 
-
-
 const Testimonial = () => {
 
     const settings = {
@@ -69,6 +66,7 @@ const Testimonial = () => {
         infinite: true,
         speed: 500,
         autoplay: true,
+        arrows: false,
         slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
@@ -78,43 +76,57 @@ const Testimonial = () => {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     dots: true,
-                    infinite: true,
                 }
             },
             {
-                breakpoint: 768,
+                breakpoint: 640,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    dots: false,
+                    dots: true,
                 }
             },
-
         ]
     }
 
     return (
-        <div className='lg:px-32 px-4 sm:pt-20 pt-5 pb-10'>
-            <h2 className='text-center sm:text-4xl text-2xl mb-5 font-semibold'>Customer Review</h2>
+        <section className="lg:px-32 px-4 sm:pt-20 pt-10 pb-14 overflow-hidden">
+            <h2 className="text-center sm:text-4xl text-2xl mb-8 font-semibold">
+                Customer Review
+            </h2>
+
             <Slider {...settings}>
                 {testimonials.map((item, index) => (
-                    <div key={index} className="p-5">
-                        <div className='border rounded-lg p-5'>
-                            <BsChatQuote size={30} className='mb-3' />
+                    <div key={index} className="px-2 sm:px-4">
+                        <div className="border rounded-xl p-5 sm:p-6 h-full flex flex-col justify-between bg-white">
 
-                            <p className='mb-5'>{item.review}</p>
-                            <h4 className='font-semibold'>{item.name}</h4>
-                            <div className='flex mt-1'>
-                                {Array.from({ length: item.rating }).map((_, i) => (
-                                    <IoStar key={`star${i}`} className='text-yellow-400' size={20} />
-                                ))}
+                            <BsChatQuote size={28} className="mb-3 text-gray-500" />
+
+                            <p className="mb-5 text-sm leading-relaxed">
+                                {item.review}
+                            </p>
+
+                            <div>
+                                <h4 className="font-semibold">
+                                    {item.name}
+                                </h4>
+
+                                <div className="flex mt-1">
+                                    {Array.from({ length: item.rating }).map((_, i) => (
+                                        <IoStar
+                                            key={`star${i}`}
+                                            className="text-yellow-400"
+                                            size={18}
+                                        />
+                                    ))}
+                                </div>
                             </div>
 
                         </div>
                     </div>
                 ))}
             </Slider>
-        </div>
+        </section>
     )
 }
 
