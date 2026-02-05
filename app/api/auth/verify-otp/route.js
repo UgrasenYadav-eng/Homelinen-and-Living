@@ -62,11 +62,11 @@ export async function POST(request) {
     //   secure: process.env.NODE_ENV === "production",
     //   sameSite: "lax",
     // });
-    const cookieStore = cookies();
+const cookieStore = await cookies(); // ✅ await REQUIRED
 
 cookieStore.set("access_token", token, {
   httpOnly: true,
-  secure: true,       // REQUIRED for Vercel
+  secure: true,     // REQUIRED for Vercel
   sameSite: "lax",
   path: "/",
 });
