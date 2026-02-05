@@ -9,7 +9,13 @@ export async function GET(request) {
     try {
         const auth = await isAuthenticated('admin')
         if (!auth.isAuth) {
-            return response(false, 403, 'Unauthorized.')
+            // return response(false, 403, 'Unauthorized.')
+            return NextResponse.json(
+  { success: false, message: "Unauthorized" },
+  { status: 403 }
+);
+
+
         }
 
         await connectDB()

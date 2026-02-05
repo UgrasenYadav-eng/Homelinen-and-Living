@@ -52,16 +52,25 @@ export async function POST(request) {
       .setProtectedHeader({ alg: "HS256" })
       .sign(secret);
 
-    const cookieStore = await cookies();
+    // const cookieStore = await cookies();
 
-    cookieStore.set({
-      name: "access_token",
-      value: token,
-      httpOnly: process.env.NODE_ENV === "production",
-      path: "/",
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-    });
+    // cookieStore.set({
+    //   name: "access_token",
+    //   value: token,
+    //   httpOnly: process.env.NODE_ENV === "production",
+    //   path: "/",
+    //   secure: process.env.NODE_ENV === "production",
+    //   sameSite: "lax",
+    // });
+    const cookieStore = cookies();
+
+cookieStore.set("access_token", token, {
+  httpOnly: true,
+  secure: true,       // REQUIRED for Vercel
+  sameSite: "lax",
+  path: "/",
+});
+
 
     // remove otp after validation
     await getOtpData.deleteOne();
