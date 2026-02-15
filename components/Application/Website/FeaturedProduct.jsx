@@ -4,11 +4,9 @@ import ProductBox from "./ProductBox";
 
 const FeaturedProduct = async () => {
   const res = await fetch(
-  "/api/product/get-featured-product",
-  { cache: "no-store" }
-);
-
-
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/product/get-featured-product`,
+    { cache: "no-store" }
+  );
 
   if (!res.ok) {
     console.error("Failed to fetch featured products");
