@@ -1,4 +1,5 @@
 // 📁 app/api/media/route.js
+export const dynamic = "force-dynamic";
 
 import { connectDB } from "@/lib/databaseConnection";
 import { catchError, response } from "@/lib/helperFunction";

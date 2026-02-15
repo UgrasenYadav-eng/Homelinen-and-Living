@@ -1,4 +1,6 @@
 import { isAuthenticated } from "@/lib/authentication"
+export const dynamic = "force-dynamic";
+
 import { connectDB } from "@/lib/databaseConnection"
 import { catchError } from "@/lib/helperFunction"
 import userModel from "@/models/userModel"
