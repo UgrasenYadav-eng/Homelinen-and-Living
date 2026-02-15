@@ -64,16 +64,27 @@ const secret = new TextEncoder().encode(process.env.SECRET_KEY);
       .setExpirationTime("24h")
       .sign(secret);
 
-    // 🍪 Set Cookie (Vercel + Local Safe)
-    const cookieStore = await cookies(); // ❌ NO await here
+      // 🍪 Set Cookie (Vercel + Local Safe)
+const cookieStore = await cookies();
 
-    cookieStore.set("access_token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // true only on Vercel
-      sameSite: "lax",
-      path: "/",
-      maxAge: 60 * 60 * 24, // 1 day
-    });
+cookieStore.set("access_token", token, {
+  httpOnly: true,
+  secure: true,          // 🔥 Always true (Vercel uses HTTPS)
+  sameSite: "none",      // 🔥 CRITICAL FIX
+  path: "/",
+  maxAge: 60 * 60 * 24,
+});
+
+    // // 🍪 Set Cookie (Vercel + Local Safe)
+    // const cookieStore = await cookies(); // ❌ NO await here
+
+    // cookieStore.set("access_token", token, {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production", // true only on Vercel
+    //   sameSite: "lax",
+    //   path: "/",
+    //   maxAge: 60 * 60 * 24, // 1 day
+    // });
 
     // 🧹 Delete OTP after success
     await otpDoc.deleteOne();
