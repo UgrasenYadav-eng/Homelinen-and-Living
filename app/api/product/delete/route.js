@@ -7,7 +7,15 @@ export async function PUT(request) {
     try {
         const auth = await isAuthenticated('admin')
         if (!auth.isAuth) {
-            return response(false, 403, 'Unauthorized.')
+            return NextResponse.json(
+  {
+    success: false,
+    data: [],
+    meta: { totalRowCount: 0 }
+  },
+  { status: 403 }
+);
+
         }
 
         await connectDB()
@@ -49,7 +57,15 @@ export async function DELETE(request) {
     try {
         const auth = await isAuthenticated('admin')
         if (!auth.isAuth) {
-            return response(false, 403, 'Unauthorized.')
+            return NextResponse.json(
+  {
+    success: false,
+    data: [],
+    meta: { totalRowCount: 0 }
+  },
+  { status: 403 }
+);
+
         }
 
         await connectDB()
@@ -67,7 +83,7 @@ export async function DELETE(request) {
             return response(false, 404, 'Data not found.')
         }
 
-        if (!deleteType === 'PD') {
+        if (deleteType !== 'PD') {
             return response(false, 400, 'Invalid delet operation. Delete type should be PD for this route.')
         }
 

@@ -8,7 +8,15 @@ export async function POST(request) {
     try {
         const auth = await isAuthenticated('admin')
         if (!auth.isAuth) {
-            return response(false, 403, 'Unauthorized.')
+            return NextResponse.json(
+  {
+    success: false,
+    data: [],
+    meta: { totalRowCount: 0 }
+  },
+  { status: 403 }
+);
+
         }
 
         await connectDB()
