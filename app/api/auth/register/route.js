@@ -29,8 +29,8 @@ export async function POST(request) {
 
     const checkUser = await userModel.exists({ email });
     if (checkUser) {
-      return response(true, 409, "An user already registered with this email");
-    }
+  return response(false, 409, "An user already registered with this email");
+}
 
     const newRegistration = new userModel({
       name,
@@ -53,8 +53,13 @@ export async function POST(request) {
   "Email Verification From Homelinen & Living", // ✅ subject
   email,                                        // ✅ receiver
   emailVerificationLink(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/auth/verify-email/${token}`
-  )
+  `${
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000")
+  }/auth/verify-email/${token}`
+)
 );
 
     } catch (mailError) {

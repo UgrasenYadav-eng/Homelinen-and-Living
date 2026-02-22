@@ -35,6 +35,13 @@ const mediaSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+      // ✅ ADD THIS (for slider from dashboard)
+    type: {
+        type: String,
+        enum: ["product", "slider"],
+        default: "product",
+        index: true
+    },
     deletedAt: {
         type: Date,
         default: null,

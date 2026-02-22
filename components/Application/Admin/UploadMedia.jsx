@@ -5,7 +5,7 @@ import axios from 'axios';
 import { CldUploadWidget } from 'next-cloudinary';
 import { FiPlus } from "react-icons/fi";
 
-const UploadMedia = ({ isMultiple, queryClient }) => {
+const UploadMedia = ({ isMultiple, queryClient, uploadType = "product" }) => {
 
     const handleOnError = (error) => {
         showToast('error', error.statusText)
@@ -20,9 +20,19 @@ const UploadMedia = ({ isMultiple, queryClient }) => {
             thumbnail_url: file.uploadInfo.thumbnail_url,
         }))
 
-        if (uploadedFiles.length > 0) {
-            try {
-                const { data: mediaUploadResponse } = await axios.post('/api/media/create', uploadedFiles)
+    if (uploadedFiles.length > 0) {
+    try {
+
+        const filesWithType = uploadedFiles.map(file => ({
+            ...file,
+            type: uploadType
+        }));
+
+        const { data: mediaUploadResponse } = await axios.post(
+            '/api/media/create',
+            filesWithType
+        );
+
                 if (!mediaUploadResponse.success) {
                     throw new Error(mediaUploadResponse.message)
                 }
@@ -50,8 +60,11 @@ const UploadMedia = ({ isMultiple, queryClient }) => {
             }}
 
             options={{
-                multiple: isMultiple,
-                sources: ['local', 'url', 'unsplash', 'google_drive'],
+            multiple: isMultiple,
+            folder: uploadType === "slider"
+            ? "homeline/slider"
+            : "homeline/media",
+            sources: ['local', 'url', 'unsplash', 'google_drive'],
             }}
         >
 

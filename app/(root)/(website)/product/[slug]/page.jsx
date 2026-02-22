@@ -1,27 +1,48 @@
-import axios from 'axios'
 import React from 'react'
 import ProductDetails from './ProductDetails'
 
 const ProductPage = async ({ params, searchParams }) => {
-    const { slug } = await params
-    const { color, size } = await searchParams
+    const resolvedParams = await params
+    const resolvedSearchParams = await searchParams
 
-    let url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/product/details/${slug}`
+    const { slug } = resolvedParams
+    const { color, size } = resolvedSearchParams
+
+    // let url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/product/details/${slug}`
+    // let url = `${process.env.NEXT_PUBLIC_API_BASE_URL || ''}/api/product/details/${slug}`
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || ""
+
+let url = `${baseUrl}/product/details/${slug}`
 
     if (color && size) {
         url += `?color=${color}&size=${size}`
     }
 
-    const { data: getProduct } = await axios.get(url)
+    let getProduct = null
 
-    if (!getProduct.success) {
+    try {
+        const res = await fetch(url, { cache: "no-store" })
+
+        if (!res.ok) {
+            throw new Error("Failed to fetch")
+        }
+
+        getProduct = await res.json()
+    } catch (error) {
+        return (
+            <div className='flex justify-center items-center py-10 h-[300px]'>
+                <h1 className='text-4xl font-semibold'>Data not found.</h1>
+            </div>
+        )
+    }
+
+    if (!getProduct?.success) {
         return (
             <div className='flex justify-center items-center py-10 h-[300px]'>
                 <h1 className='text-4xl font-semibold'>Data not found.</h1>
             </div>
         )
     } else {
-
         return (
             <ProductDetails
                 product={getProduct?.data?.product}
@@ -32,7 +53,45 @@ const ProductPage = async ({ params, searchParams }) => {
             />
         )
     }
-
 }
 
 export default ProductPage
+
+// import axios from 'axios'
+// import React from 'react'
+// import ProductDetails from './ProductDetails'
+
+// const ProductPage = async ({ params, searchParams }) => {
+//     const { slug } = await params
+//     const { color, size } = await searchParams
+
+//     let url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/product/details/${slug}`
+
+//     if (color && size) {
+//         url += `?color=${color}&size=${size}`
+//     }
+
+//     const { data: getProduct } = await axios.get(url)
+
+//     if (!getProduct.success) {
+//         return (
+//             <div className='flex justify-center items-center py-10 h-[300px]'>
+//                 <h1 className='text-4xl font-semibold'>Data not found.</h1>
+//             </div>
+//         )
+//     } else {
+
+//         return (
+//             <ProductDetails
+//                 product={getProduct?.data?.product}
+//                 variant={getProduct?.data?.variant}
+//                 colors={getProduct?.data?.colors}
+//                 sizes={getProduct?.data?.sizes}
+//                 reviewCount={getProduct?.data?.reviewCount}
+//             />
+//         )
+//     }
+
+// }
+
+// export default ProductPage

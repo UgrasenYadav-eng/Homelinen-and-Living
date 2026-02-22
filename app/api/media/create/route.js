@@ -14,7 +14,13 @@ export async function POST(request) {
         }
 
         await connectDB()
-        const newMedia = await MediaModel.insertMany(payload)
+        // add type to each item
+const updatedPayload = payload.map(item => ({
+    ...item,
+    type: item.type || "product" // default
+}));
+
+const newMedia = await MediaModel.insertMany(updatedPayload);
         return response(true, 200, 'Media upload successfully.', newMedia)
 
     } catch (error) {

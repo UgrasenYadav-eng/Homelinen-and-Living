@@ -422,7 +422,7 @@ const Home = () => {
   <FeaturedProduct />
 </Suspense>
 
-<section className="py-10 sm:py-16 flex justify-center">
+{/* <section className="py-10 sm:py-16 flex justify-center">
   <div className="max-w-[1100px] w-full px-4">
 
     <div className="
@@ -443,7 +443,7 @@ const Home = () => {
     </div>
 
   </div>
-</section>
+</section> */}
 
 
       <Testimonial />
@@ -454,7 +454,7 @@ const Home = () => {
             <p className="flex justify-center items-center mb-3">
               <GiReturnArrow size={30} />
             </p>
-            <h3 className="text-xl font-semibold">7-Days Returns</h3>
+            <h3 className="text-xl font-semibold">Days Returns</h3>
             <p>Risk-free shopping with easy returns.</p>
           </div>
 
@@ -462,8 +462,8 @@ const Home = () => {
             <p className="flex justify-center items-center mb-3">
               <FaShippingFast size={30} />
             </p>
-            <h3 className="text-xl font-semibold">Free Shipping</h3>
-            <p>No extra costs, just the price you see.</p>
+            <h3 className="text-xl font-semibold">Shipping</h3>
+            <p>Premimum Shipping .</p>
           </div>
 
           <div className="text-center">

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Checkbox } from '@/components/ui/checkbox'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { ADMIN_MEDIA_EDIT } from '@/routes/AdminPanelRoute';
@@ -27,7 +28,22 @@ const Media = ({ media, handleDelete, deleteType, selectedMedia, setSelectedMedi
         await navigator.clipboard.writeText(url)
         showToast('success', 'Link copied.')
     }
+const handleToggleSlider = async () => {
+    try {
+        const { data } = await axios.patch("/api/media/set-slider", {
+            id: media._id,
+            isSlider: media.type === "slider" ? false : true
+        });
 
+        if (data.success) {
+            showToast("success", data.message);
+            window.location.reload(); // simple refresh (we can improve later)
+        }
+
+    } catch (error) {
+        showToast("error", "Something went wrong");
+    }
+};
     return (
         <div className='border border-gray-200 dark:border-gray-800 relative group rounded overflow-hidden'>
             <div className='absolute top-2 left-2 z-20'>
@@ -65,7 +81,13 @@ const Media = ({ media, handleDelete, deleteType, selectedMedia, setSelectedMedi
                             <LuTrash color='red' />
                             {deleteType === 'SD' ? 'Move Into Trash' : 'Delete Permanently'}
                         </DropdownMenuItem>
-
+                        {/* // silder */}
+                        <DropdownMenuItem
+                        className="cursor-pointer"
+                         onClick={handleToggleSlider}
+>
+                        {media.type === "slider" ? "Remove From Slider" : "Add To Slider"}  
+                        </DropdownMenuItem>
 
                     </DropdownMenuContent>
                 </DropdownMenu>

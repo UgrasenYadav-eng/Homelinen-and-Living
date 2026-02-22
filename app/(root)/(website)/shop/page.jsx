@@ -33,14 +33,20 @@ const Shop = () => {
 
 
     const fetchProduct = async (pageParam) => {
-        const { data: getProduct } = await axios.get(`/api/shop?page=${pageParam}&limit=${limit}&sort=${sorting}&${searchParams}`)
+    try {
+        const { data: getProduct } = await axios.get(
+            `/api/shop?page=${pageParam}&limit=${limit}&sort=${sorting}&${searchParams}`
+        )
 
         if (!getProduct.success) {
-            return
+            return { products: [], nextPage: null }
         }
 
         return getProduct.data
+    } catch (error) {
+        return { products: [], nextPage: null }
     }
+}
 
     const { error, data, isFetching, fetchNextPage, hasNextPage } = useInfiniteQuery({
         queryKey: ['products', limit, sorting, searchParams],
@@ -93,11 +99,11 @@ const Shop = () => {
                     {error && <div className='p-3 font-semibold text-center'>{error.message}</div>}
 
                     <div className='grid lg:grid-cols-3 grid-cols-2 lg:gap-10 gap-5 mt-10'>
-                        {data && data.pages.map(page => (
-                            page.products.map(product => (
-                                <ProductBox key={product._id} product={product} />
-                            ))
-                        ))}
+                        {data?.pages?.map((page) =>
+                            page?.products?.map(product => (
+                           <ProductBox key={product._id} product={product} />
+                         ))
+                    )}
                     </div>
 
                     {/* load more button  */}
