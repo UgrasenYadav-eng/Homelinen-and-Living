@@ -57,7 +57,7 @@ export default function Footer() {
           </p>
 
           <p className="mt-6">
-            📞 +91 9810436648  
+          
             <br />
             ✉️ hello@homelinenandliving
           </p>
